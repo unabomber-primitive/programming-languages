@@ -24,7 +24,7 @@
   |-----------------------------------+-------------+--------+---------------|
   | онлайн-курс                       |          18 |        |               |
   | семинары                          |           5 |      8 |               |
-  | [[https://gitlab.se.ifmo.ru/programming-languages/cse-programming-languages-fall-2022/assignment-1-io-library][Задание 1: основы ассемблера]      |           5 |        |               |
+  | [[https://gitlab.se.ifmo.ru/programming-languages/cse-programming-languages-fall-2022/assignment-1-io-library][Задание 1: основы ассемблера]]      |           5 |        |               |
   | Задание 2: ассемблер, словарь     |           3 |        |               |
   | Задание 3: C, поворот изображения |           5 |        |               |
   | Задание 4: C, аллокатор           |           4 |        |               |
