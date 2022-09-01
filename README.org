@@ -49,6 +49,7 @@
   - gcc или clang
   - binutils
   - gdb
+  - git
   - nasm
   - python (для тестов к первой лабе)
   - для тестирования лаб по C: clang-tidy
