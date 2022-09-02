@@ -26,15 +26,15 @@
   - Лабораторные работы на чистом C можно выполнять на MacOS.
 
   - Пользователи Windows могут установить виртуальную машину или использовать WSL или WSL2.
-    - VirtualBox: https://www.virtualbox.org/wiki/Downloads
+    - VirtualBox: [[https://www.virtualbox.org/wiki/Downloads]]
   - Мы предоставляем несколько образов виртуальных машин для VirtualBox:
-    - Ubuntu 16 with standard desktop environment (VirtualBox): https://yadi.sk/d/CLf4D4IM3TSpsx
-    - Debian 9 Minimal (.vmx) https://yadi.sk/d/BehMKGzS3LgXzG
-    - Debian 9 + XFCE https://yadi.sk/d/01uFWHCw3SHzh9
+    - Ubuntu 16 with standard desktop environment (VirtualBox): [[https://yadi.sk/d/CLf4D4IM3TSpsx]]
+    - Debian 9 Minimal (.vmx) [[https://yadi.sk/d/BehMKGzS3LgXzG]]
+    - Debian 9 + XFCE [[https://yadi.sk/d/01uFWHCw3SHzh9]]
 
         Логин/пароль =user=, пароль от пользователя =root= --- =qwerty=
 
-    - Docker image (не тестировалась) https://github.com/kellyi/nasm-gcc-container
+    - Docker image (не тестировалась) [[https://github.com/kellyi/nasm-gcc-container]]
 
 * Tема занятия
   :PROPERTIES:
@@ -408,7 +408,7 @@ $1 = 1234605616436508552
  * Посмотреть первый символ строчки которая находится на метке =msg=:
 
 #+BEGIN_SRC
-(gdb) print /c message
+(gdb) print /c &message
 $2 = '0'
 #+END_SRC
 
@@ -427,7 +427,7 @@ $2 = '0'
 => 0x4000e9 <_start.loop+32>:   jne    0x4000c9 <_start.loop>
 #+END_SRC
 
- * Чему равны 12 первых символов начиная с метки =message=?
+ * Чему равны 5 первых символов начиная с метки =message=?
 
 #+BEGIN_SRC
 (gdb) x /5cb &message
