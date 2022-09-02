@@ -98,6 +98,9 @@
      
 * Лекции
 
+- 02-09-2022 [[https://youtu.be/0vk2k6xGlvo][Системы, вычислительные системы]]
+
+
 * Семинары
 
 ** [[https://gitlab.se.ifmo.ru/programming-languages/cse-programming-languages-fall-2022/main/-/tree/master/seminar-1][Семинар 1. Cреда выполнения, основы языка ассемблера]]
