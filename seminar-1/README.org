@@ -189,7 +189,7 @@ $ grep 'hello' test
             mov     rdx, 14          ; string length in bytes
             syscall
 
-        mov     rax, 60          ; 'exit' syscall number
+            mov     rax, 60          ; 'exit' syscall number
             xor     rdi, rdi
             syscall
   #+END_SRC
@@ -244,7 +244,7 @@ Hello, world!
             mov     rdx, 14          ; string length in bytes
             syscall
 
-        mov     rax, 60          ; 'exit' syscall number
+            mov     rax, 60          ; 'exit' syscall number
             xor     rdi, rdi
             syscall
   #+END_SRC
@@ -483,5 +483,21 @@ $2 = '0'
 
 Если вам интересно узнать больше о возможностях GDB, советуем взглянуть на ресурс [[Debugging with gdb][http://sourceware.org/gdb/current/onlinedocs/gdb/]].
 
+*Задание*  Пройдите по шагам следующую программу и проследите за изменением значения регистра =rax=:
+
+  #+BEGIN_SRC asm
+        section .text
+        global _start
+
+        _start:
+            mov     rax, 0FFFFFFFFFFFFFFFFh
+            mov     al, 0
+            mov     ax, 0
+            mov     eax, 0
+
+            mov     rax, 60
+            xor     rdi, rdi
+            syscall
+  #+END_SRC
 
 
