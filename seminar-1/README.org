@@ -410,11 +410,11 @@ set disassembly-flavor intel
 $1 = 1234605616436508552
 #+END_SRC
 
- * Посмотреть первый символ строчки которая находится на метке =msg=:
+ * Посмотреть первый символ строчки которая находится на метке =message=:
 
 #+BEGIN_SRC
-(gdb) print /c &message
-$2 = '0'
+(gdb) print /c (char)message
+$2 = 'h'
 #+END_SRC
 
 
