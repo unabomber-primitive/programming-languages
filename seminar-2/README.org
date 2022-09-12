@@ -34,22 +34,22 @@ section .text
 global _start
 
 _start:
-    mov     rax, 1           ; 'write' syscall number
-    mov     rdi, 1           ; stdout descriptor
-    mov     rsi, message     ; string address
-    mov     rdx, 14          ; string length in bytes
+    mov  rax, 1              ; 'write' syscall number
+    mov  rdi, 1              ; stdout descriptor
+    mov  rsi, message        ; string address
+    mov  rdx, 14             ; string length in bytes
     syscall
 
-    mov     rax, 60          ; 'exit' syscall number
-    xor     rdi, rdi         ; error code
+    mov  rax, 60             ; 'exit' syscall number
+    xor  rdi, rdi            ; error code
     syscall
   #+END_SRC
 
 Она завершается системным вызовом =exit=, который выходит из программы. 
 
 #+BEGIN_SRC asm
-    mov     rax, 60          ; 'exit' syscall number
-    xor     rdi, rdi
+    mov  rax, 60             ; 'exit' syscall number
+    xor  rdi, rdi
     syscall
 #+END_SRC
 
@@ -66,15 +66,15 @@ section .text
 global _start
 
 exit:                        ; Это метка начала функции exit
-    mov     rax, 60          ; Это функция exit
-    xor     rdi, rdi         ; Это функция exit
+    mov  rax, 60             ; Это функция exit
+    xor  rdi, rdi            ; Это функция exit
     syscall                  ; Это функция exit
 
 _start:
-    mov     rax, 1
-    mov     rdi, 1
-    mov     rsi, message  
-    mov     rdx, 14         
+    mov  rax, 1
+    mov  rdi, 1
+    mov  rsi, message  
+    mov  rdx, 14         
     syscall
     call exit                ; это вызов функции exit
 #+END_SRC
@@ -106,17 +106,17 @@ section .text
 global _start
 
 exit:                        ; Это метка начала функции exit
-    mov     rax, 60          ; Это функция exit
-    xor     rdi, rdi
+    mov  rax, 60             ; Это функция exit
+    xor  rdi, rdi
     syscall
 
 print_string:                ; Это метка начала функции print_string
-  mov     rax, 1             ; Это функция print_string
-  mov     rdi, 1
-  mov     rsi, message
-  mov     rdx, 14
-  syscall
-  ret                        ; Выход из функции print_string
+    mov  rax, 1              ; Это функция print_string
+    mov  rdi, 1
+    mov  rsi, message
+    mov  rdx, 14
+    syscall
+    ret                      ; Выход из функции print_string
 
 _start:
     call print_string        ; Вызов функции print_string
@@ -159,15 +159,15 @@ rcx <- sum( 42, 44 )
 #+BEGIN_SRC asm
 ; rdi = a, rsi = b
 sum: 
-      mov rax, rdi
-      add rax, rsi
+      mov  rax, rdi
+      add  rax, rsi
       ret
 
 ...
-mov rdi, 42
-mov rsi, 44
+mov  rdi, 42
+mov  rsi, 44
 call sum
-mov rcx, rax
+mov  rcx, rax
 #+END_SRC
 
 Функция получает аргументы =a= и =b= через первые два регистра, используемые для передачи аргументов: =rdi= и =rsi=.
@@ -177,14 +177,14 @@ mov rcx, rax
 #+BEGIN_SRC asm
 ; rdi = a, rsi = b
 sum: 
-      mov rax, rdi
-      add rax, rsi
+      mov  rax, rdi
+      add  rax, rsi
       ret
 
 ...
-mov rdi, 42   
+mov  rdi, 42   
 call sum         ; Второй аргумент всё равно возьмётся из rsi
-mov rcx, rax     ; Скорее всего там "мусорное" значение
+mov  rcx, rax     ; Скорее всего там "мусорное" значение
 #+END_SRC 
 
 Результат вызва функции =sum= в данном случае будет зависиить от выполненых ранее команд и финального состояния регистра =rsi=.
@@ -192,12 +192,12 @@ mov rcx, rax     ; Скорее всего там "мусорное" значе�
 *Вопрос*  Есть ли разница между этими двумя вызовами функции =f= с двумя аргументами?
 
 #+BEGIN_SRC asm
-  mov rdi,10
-  mov rsi, 30
+  mov  rdi,10
+  mov  rsi, 30
   call f
 
-  mov rsi, 30
-  mov rdi,10
+  mov  rsi, 30
+  mov  rdi,10
   call f
 #+END_SRC
 
@@ -215,30 +215,30 @@ section .text
 global _start
 _start:
     ; number 1122... in hexadecimal format
-    mov rax, 0x1122334455667788
+    mov  rax, 0x1122334455667788
 
-    mov rdi, 1
-    mov rdx, 1
-    mov rcx, 64
+    mov  rdi, 1
+    mov  rdx, 1
+    mov  rcx, 64
 	; Each 4 bits should be output as one hexadecimal digit
 	; Use shift and bitwise AND to isolate them
 	; the result is the offset in 'codes' array
 .loop:
     push rax
-    sub rcx, 4
+    sub  rcx, 4
 	; cl is a register, smallest part of rcx
 	; rax -- eax -- ax -- ah + al
 	; rcx -- ecx -- cx -- ch + cl
-    sar rax, cl
-    and rax, 0xf
+    sar  rax, cl
+    and  rax, 0xf
 
-    lea rsi, [codes + rax]
-    mov rax, 1
+    lea  rsi, [codes + rax]
+    mov  rax, 1
 
     ; syscall leaves rcx and r11 changed
     push rcx
     syscall
-    pop rcx
+    pop  rcx
 
     pop rax
 	; test can be used for the fastest 'is it a zero?' check
@@ -246,8 +246,8 @@ _start:
     test rcx, rcx
     jnz .loop
 
-    mov     rax, 60            ; invoke 'exit' system call
-    xor     rdi, rdi
+    mov  rax, 60            ; invoke 'exit' system call
+    xor  rdi, rdi
     syscall
 
 #+END_SRC
@@ -268,8 +268,8 @@ section .text
 global _start
 
 exit:
-    mov    rax, 60
-    xor     rdi, rdi          
+    mov  rax, 60
+    xor  rdi, rdi          
     syscall
 
 string_length:
@@ -283,17 +283,18 @@ string_length:
       jmp .count
     .end:
       ret
+
 print_string:
-  mov     rsi, rdi
-  mov     rdx, rsi
-  mov     rax, 1
-  mov     rdi, 1
-  syscall
-  ret
+    mov  rdx, rsi
+    mov  rsi, rdi
+    mov  rax, 1
+    mov  rdi, 1
+    syscall
+    ret
 
 _start:
-    mov rdi, message
-    mov rsi,14  
+    mov  rdi, message
+    mov  rsi, 14  
     call print_string
     call exit                    ; это вызов функции exit
 #+END_SRC
@@ -321,22 +322,22 @@ _start:
 #+BEGIN_SRC asm
 ; rdi = адрес строки
 string_length:
-    xor rax, rax
+    xor  rax, rax
     .counter:
-        cmp byte [rdi+rax], 0
-        je .end
-        inc rax
-        jmp .counter
+        cmp  byte [rdi+rax], 0
+        je   .end
+        inc  rax
+        jmp  .counter
     .end:
         ret
 
 ; rdi = адрес строки
 print_string:
     call string_length
-    mov rdx, rax
-    mov rax, 1
-    mov rsi, rdi
-    mov rdi, 1
+    mov  rdx, rax
+    mov  rax, 1
+    mov  rsi, rdi
+    mov  rdi, 1
     syscall           ; вызов write
     ret
 #+END_SRC
@@ -346,23 +347,23 @@ print_string:
 #+BEGIN_SRC asm
 ; rdi = адрес строки
 string_length:
-    mov rax, rdi
+    mov  rax, rdi
     .counter:
-        cmp byte [rdi], 0
-        je .end
-        inc rdi
-        jmp .counter
+        cmp  byte [rdi], 0
+        je   .end
+        inc  rdi
+        jmp  .counter
     .end:
-    sub rdi, rax
-    mov rax, rdi
+    sub  rdi, rax
+    mov  rax, rdi
     ret
 ; rdi = адрес строки
 print_string:
     call string_length
-    mov rdx, rax
-    mov rax, 1
-    mov rsi, rdi
-    mov rdi, 1
+    mov  rdx, rax
+    mov  rax, 1
+    mov  rsi, rdi
+    mov  rdi, 1
     syscall           ; вызов write
     ret
 #+END_SRC
@@ -380,7 +381,7 @@ print_string:
 
 #+BEGIN_SRC asm
 ; Первый способ
-sub rsp, 24
+sub  rsp, 24
 
 ; Второй способ
 push 0
