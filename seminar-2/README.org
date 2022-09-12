@@ -299,7 +299,7 @@ _start:
 #+END_SRC
 
 
-*Вопрос* С помощью тестировщика для [[https://gitlab.se.ifmo.ru/programming-languages/cse-programming-languages-fall-2022/assignment-1-io-library][первой лабораторной работы]] протестируйте работу функций =string_length= и =print_string=.
+*Задание* С помощью тестировщика для [[https://gitlab.se.ifmo.ru/programming-languages/cse-programming-languages-fall-2022/assignment-1-io-library][первой лабораторной работы]] протестируйте работу функций =string_length= и =print_string=.
 
 
 
