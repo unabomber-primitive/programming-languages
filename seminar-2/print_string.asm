@@ -1,17 +1,17 @@
-; print_string.asm 
+; print_string.asm
 section .data
-message: db  'hello, world!', 10
+message: db  'hello, world!', 10, 0
 
 section .text
 global _start
 
 exit:
-    mov    rax, 60
-    xor     rdi, rdi          
+    mov  rax, 60
+    xor  rdi, rdi
     syscall
 
 string_length:
-  mov rax, 0
+    mov rax, 0
     .loop:
       xor rax, rax
     .count:
@@ -21,16 +21,17 @@ string_length:
       jmp .count
     .end:
       ret
+
 print_string:
-  mov     rsi, rdi
-  mov     rdx, rsi
-  mov     rax, 1
-  mov     rdi, 1
-  syscall
-  ret
+    mov  rdx, rsi
+    mov  rsi, rdi
+    mov  rax, 1
+    mov  rdi, 1
+    syscall
+    ret
 
 _start:
-    mov rdi, message
-    mov rsi,14  
+    mov  rdi, message
+    mov  rsi, 14
     call print_string
     call exit                    ; это вызов функции exit
