@@ -34,4 +34,4 @@ _start:
     mov  rdi, message
     mov  rsi, 14
     call print_string
-    call exit                    ; это вызов функции exit
+    call exit
