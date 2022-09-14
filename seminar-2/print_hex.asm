@@ -1,9 +1,11 @@
+; print_hex.asm
 section .data
 codes:
     db   '0123456789ABCDEF'
 
 section .text
 global _start
+
 _start:
     ; number 1122... in hexadecimal format
     mov  rax, 0x1122334455667788
