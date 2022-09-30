@@ -22,18 +22,18 @@
 
   [[https://docs.google.com/spreadsheets/d/1C8WEkFrJMFLWsiVeEDzulRgiViippIq2O3FUKndeUYg/edit?usp=drivesdk][Журнал]]
 
-  |                                   |   баллов    | кол-во |               |
-  |-----------------------------------+-------------+--------+---------------|
-  | онлайн-курс                       |          18 |        |               |
-  | семинары                          |           4 |    x 8 |               |
-  | [[https://gitlab.se.ifmo.ru/programming-languages/cse-programming-languages-fall-2022/assignment-1-io-library][Задание 1: основы ассемблера]]      |           7 |        |               |
-  | [[https://gitlab.se.ifmo.ru/programming-languages/cse-programming-languages-fall-2022/assignment-2-dictionary][Задание 2: ассемблер, словарь]]     |           5 |        |               |
-  | [[https://gitlab.se.ifmo.ru/programming-languages/cse-programming-languages-fall-2022/assignment-3-image-rotation][Задание 3: C, поворот изображения]] |           7 |        |               |
-  | [[https://gitlab.se.ifmo.ru/programming-languages/cse-programming-languages-fall-2022/assignment-4-memory-allocator][Задание 4: C, аллокатор]]           |           6 |        |               |
-  | [[https://gitlab.se.ifmo.ru/programming-languages/cse-programming-languages-fall-2022/assignment-5-sepia-filter][Задание 5: C, сепия фильтр]]        |           5 |        | необязательно; 2 балла если не добились ускорения |
-  | провести code review коллегам     |           1 |   x 10 | минимум одно  |
-  | экзамен                           |          20 |        | необязательно |
-  | проект                            |          30 |        | необязательно |
+  |                                   |   баллов    | кол-во |               | дедлайн       |
+  |-----------------------------------+-------------+--------+---------------|---------------|
+  | онлайн-курс                       |          18 |        |               | 31.12         |
+  | семинары                          |           4 |    x 8 |               |               |
+  | [[https://gitlab.se.ifmo.ru/programming-languages/cse-programming-languages-fall-2022/assignment-1-io-library][Задание 1: основы ассемблера]]      |           7 |        |               |  31.09.2022    |
+  | [[https://gitlab.se.ifmo.ru/programming-languages/cse-programming-languages-fall-2022/assignment-2-dictionary][Задание 2: ассемблер, словарь]]     |           5 |        |               |  15.10.2022     |
+  | [[https://gitlab.se.ifmo.ru/programming-languages/cse-programming-languages-fall-2022/assignment-3-image-rotation][Задание 3: C, поворот изображения]] |           7 |        |               | 15.11.2022     |
+  | [[https://gitlab.se.ifmo.ru/programming-languages/cse-programming-languages-fall-2022/assignment-4-memory-allocator][Задание 4: C, аллокатор]]           |           6 |        |               | 09.12.2022         |
+  | [[https://gitlab.se.ifmo.ru/programming-languages/cse-programming-languages-fall-2022/assignment-5-sepia-filter][Задание 5: C, сепия фильтр]]        |           5 |        | необязательно; 2 балла если не добились ускорения |  31.12.2022   |
+  | провести code review коллегам     |           1 |   x 10 | минимум одно  |               |
+  | экзамен                           |          20 |        | необязательно |               |
+  | проект                            |          30 |        | необязательно |               |
 
 
   -  Суммарное максимальное количество баллов 140; баллы напрямую переводятся в баллы в БАРС, больше 100 баллов не ставится.
