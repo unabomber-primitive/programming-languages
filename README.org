@@ -24,7 +24,7 @@
 
   |                                   |   баллов    | кол-во |               | дедлайн       |
   |-----------------------------------+-------------+--------+---------------|---------------|
-  | онлайн-курс                       |          18 |        |               | 31.12         |
+  | онлайн-курс                       |          18 |        |               | 31.12.2022    |
   | семинары                          |           4 |    x 8 |               |               |
   | [[https://gitlab.se.ifmo.ru/programming-languages/cse-programming-languages-fall-2022/assignment-1-io-library][Задание 1: основы ассемблера]]      |           7 |        |               |  31.09.2022    |
   | [[https://gitlab.se.ifmo.ru/programming-languages/cse-programming-languages-fall-2022/assignment-2-dictionary][Задание 2: ассемблер, словарь]]     |           5 |        |               |  15.10.2022     |
