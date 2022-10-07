@@ -162,7 +162,7 @@
        test "hello", ",", " world"
    #+END_SRC
 
-   *Задание* перепишите этот макрос так, чтобы он добавлял запятую между строчками текста, переданными ему.
+   *Задание* Напишите многострочный макрос, чтобы он выделял в памяти строку из своих аргументов, разделенную запятыми. Например при передаче аргументов ="hello"=, ="another"= и ="world"= в результате в памяти была выделена строка ="hello, another, world"=.
 
 За более подробной о макросах можно обратиться к [[https://www.tortall.net/projects/yasm/manual/html/nasm-multi-line-macros.html][документации nasm]].
     
@@ -197,60 +197,6 @@
        call f ; работает
    #+END_SRC
 
-
-   *Задание* На предыдущем семинаре вы работали с функцией =print_hex=. Создайте программу из двух файлов: один содержит функцию =print_hex=, в другом содержится метка =_start= и происходит вызов =print_hex=. Скомпилируйте их и запустите программу. Какие команды необходимы чтобы провести оба файла с кодом через весь цикл компиляции?
-
-   #+BEGIN_SRC asm
-; print_hex.asm
-section .data
-codes:
-    db      '0123456789ABCDEF'
-
-section .text
-global _start
-    _start:
-           mov  rdi, 0x1122334455667788
-           call print_hex
-           call exit
-    
-    print_hex:
-           mov  rax, rdi
-           mov  rdi, 1
-           mov  rdx, 1
-           mov  rcx, 64
-         ; Each 4 bits should be output as one hexadecimal digit
-         ; Use shift and bitwise AND to isolate them
-         ; the result is the offset in 'codes' array
-       .loop:
-           push rax
-           sub  rcx, 4
-         ; cl is a register, smallest part of rcx
-         ; rax -- eax -- ax -- ah + al
-         ; rcx -- ecx -- cx -- ch + cl
-           sar  rax, cl
-           and  rax, 0xf
-     
-           lea  rsi, [codes + rax]
-           mov  rax, 1
-     
-           ; syscall leaves rcx and r11 changed
-           push rcx
-           syscall
-           pop  rcx
-     
-           pop  rax
-         ; test can be used for the fastest 'is it a zero?' check
-         ; see docs for 'test' command
-           test rcx, rcx
-           jnz  .loop
-           ret
-
-    exit:
-           mov  rax, 60
-           xor  rdi, rdi
-           syscall
-   #+END_SRC
-  
 ** Компоновщик
 
    Компоновщик работает с полуфабрикатами --- объектными файлами --- и собирает из
@@ -382,6 +328,60 @@ global _start
   #+END_SRC
 
   Тогда с помощью директивы препроцессора = %include "lib.inc" = можно включить =lib.inc= "как есть" во все файлы, нуждающиеся в библиотечных функциях. Фактически этот файл частично описывает внешний интерфейс взаимодействия с модулем =lib.asm= (полным описанием являются метки, помеченные =global= в самом файле =lib.asm=.
+
+   *Задание* На предыдущем семинаре вы работали с функцией =print_hex=. Создайте программу из трех файлов: первые два - это библиотека с функциями =print_hex= и =exit=, в третьем содержится метка =_start= и происходит вызов =print_hex=. Скомпилируйте их и запустите программу. Какие команды необходимы чтобы провести оба файла с кодом через весь цикл компиляции?
+
+   #+BEGIN_SRC asm
+; print_hex.asm
+section .data
+codes:
+    db      '0123456789ABCDEF'
+
+section .text
+global _start
+    _start:
+           mov  rdi, 0x1122334455667788
+           call print_hex
+           call exit
+    
+    print_hex:
+           mov  rax, rdi
+           mov  rdi, 1
+           mov  rdx, 1
+           mov  rcx, 64
+         ; Each 4 bits should be output as one hexadecimal digit
+         ; Use shift and bitwise AND to isolate them
+         ; the result is the offset in 'codes' array
+       .loop:
+           push rax
+           sub  rcx, 4
+         ; cl is a register, smallest part of rcx
+         ; rax -- eax -- ax -- ah + al
+         ; rcx -- ecx -- cx -- ch + cl
+           sar  rax, cl
+           and  rax, 0xf
+     
+           lea  rsi, [codes + rax]
+           mov  rax, 1
+     
+           ; syscall leaves rcx and r11 changed
+           push rcx
+           syscall
+           pop  rcx
+     
+           pop  rax
+         ; test can be used for the fastest 'is it a zero?' check
+         ; see docs for 'test' command
+           test rcx, rcx
+           jnz  .loop
+           ret
+
+    exit:
+           mov  rax, 60
+           xor  rdi, rdi
+           syscall
+   #+END_SRC
+  
 
 *Задание* создайте библиотеку =lib.asm= с двумя функциями: =print_hex= и =exit= для выхода из приложения. Напишите к ней заголовочный файл =lib.inc=. Протестируйте её, запустив функцию из другого файла с меткой =_start=. В результате ваша программа должна состоять из трех файлов:
  - =lib.asm= - файл с реализацией функций =print_hex= и =exit=.
