@@ -1,5 +1,6 @@
-﻿#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 #+INCLUDE: "../common/org-header.org"
+
 #+TITLE: Семинар 4: Виртуальная память, загрузка программ
 
 * Что такое виртуальная память
