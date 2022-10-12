@@ -191,9 +191,10 @@ _start:
     mov  rax, SYS_OPEN
     mov  rdi, fname
     mov  rsi, O_RDONLY    ; Open file read only
-    mov  rdx, 0 	         ; We are not creating a file
-                      ; so this argument has no meaning
+    mov  rdx, 0 	        ; We are not creating a file
+                          ; so this argument has no meaning
     syscall
+    ; rax holds the opened file descriptor now
 
     ; Вызовите mmap c правильными аргументами
     ; Дайте операционной системе самой выбрать, куда отобразить файл
