@@ -208,6 +208,7 @@ sizeof(off_t) = 8
   В файле =string.asm= содержатся функции =print_string= и =world=:
 
 #+BEGIN_SRC asm
+; string.asm
 global world
 global print_string
 
@@ -217,14 +218,14 @@ message: db ", world!", 10, 0
 section .text
 
 string_length:
-  mov rax, 0
+    mov  rax, 0
     .loop:
-      xor rax, rax
+      xor  rax, rax
     .count:
-      cmp byte [rdi+rax], 0
-      je .end
-      inc rax
-      jmp .count
+      cmp  byte [rdi+rax], 0
+      je   .end
+      inc  rax
+      jmp  .count
     .end:
       ret
 
@@ -235,15 +236,15 @@ print_string:
     push rax
     push rdi
     call string_length
-    mov rsi, [rsp]
-    mov rdx, rax
-    mov rax, 1
-    mov rdi, 1
+    mov  rsi, [rsp]
+    mov  rdx, rax
+    mov  rax, 1
+    mov  rdi, 1
     push rcx
     syscall
-    pop rcx
-    pop rdi
-    pop rax
+    pop  rcx
+    pop  rdi
+    pop  rax
     ret
 #+END_SRC 
     
@@ -252,6 +253,7 @@ print_string:
   В файле =hello.c= содержится функция =main=, которая вызывает =print_string= и выводит с её помощью "hello" таким способом:
 
 #+BEGIN_SRC с
+/* hello.c */
 int main() {
     print_string("hello");
     world();
@@ -273,7 +275,7 @@ int main() {
   
 * ELF-файлы
 
-  На предыдущем шаге в процессе компиляции мы получили файлы:
+  При выполнении задания 3, в процессе компиляции мы получили файлы:
 
   - =string.o= из ассемблерного файла =string.asm=;
   - =hello.o= из файла с кодом на C =hello.c=;
