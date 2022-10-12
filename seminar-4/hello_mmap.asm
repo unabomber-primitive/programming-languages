@@ -46,10 +46,10 @@ string_length:
 ; rdi holds a string pointer
 ; rsi holds a substring length
 print_substring:
-    mov  rax, SYS_WRITE
-    mov  rdi, FD_STDOUT
     mov  rdx, rsi 
     mov  rsi, rdi
+    mov  rax, SYS_WRITE
+    mov  rdi, FD_STDOUT
     syscall
     ret
 
