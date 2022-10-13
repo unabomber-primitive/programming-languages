@@ -18,7 +18,7 @@ string.o: string.asm
 	$(ASM) $(ASMFLAGS) -o $@ $<
 
 clean: 
-	rm hello hello.o string.o
+	$(RM) hello hello.o string.o
 
 .PHONY: clean
 
