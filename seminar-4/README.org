@@ -286,7 +286,7 @@ int main() {
 
   *Вопрос* Что такое секции =.rodata= и =.bss=? 
 
-  *Вопрос* Что в nasm делают директивы =resb=, =resq= и [[https://nasm.us/doc/nasmdoc3.htm][другие]]?
+  *Вопрос* Что в nasm делают директивы =resb=, =resq= и [[https://nasm.us/doc/nasmdoc3.html][другие]]?
   
   *Вопрос* В файле =hello.c=, в какой секции будет выделена строка ="hello"=?
 
