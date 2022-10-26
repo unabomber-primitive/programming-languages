@@ -1,6 +1,6 @@
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 #+INCLUDE: "../common/org-header.org"
-#+TITLE: Семинар 5: Синтаксис языка C, препроцессор языка C
+#+TITLE: Семинар 5: Аспекты языка C, препроцессор языка C, _Generic
 
 
 * Аспекты языка
@@ -388,9 +388,6 @@ DEFINE_LIST(double)
 Выведите следующее выражение:
 
 - (3+5) * (9 / 7)
-
-
-Изучите файл =printer.c= :
 
 #+begin_src c
 /* printer.c */
