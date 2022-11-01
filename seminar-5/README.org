@@ -257,7 +257,7 @@ printf("%d", dbl(3+3));
    Интересна возможность обрамлять кавычками параметры.
 
    #+BEGIN_SRC C
-#define print_var(x) printf(#x " is %d", x );
+#define print_var(x) printf(#x " is %d", x )
    #+END_SRC
 
 
