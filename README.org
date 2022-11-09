@@ -183,3 +183,11 @@
    - Макросы для работы со строками
   - Generic
   
+** [[https://gitlab.se.ifmo.ru/programming-languages/cse-programming-languages-fall-2022/main/-/tree/master/seminar-6][Семинар 6. Аллокация памяти, арихитектура]]
+  - Выделение памяти
+   - Стек
+   - Куча
+   - Аллокатор памяти
+  - Архитектура
+   - AST
+   - Непрозрачные структуры данных
