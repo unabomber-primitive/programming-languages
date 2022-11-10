@@ -60,15 +60,14 @@ void block_debug_info(struct block_id b, FILE* f) {
   fprintf(f, "%s", block_repr( b));
 }
 
-void block_foreach_printer(struct heap const* h, size_t count,
+void block_foreach_printer(struct heap* h, size_t count,
                            void  printer(struct block_id, FILE* f),
                            FILE* f) {
   for (size_t c = 0; c < count; c++)
     printer(block_id_new(c,h), f);
 }
 
-
-void heap_debug_info(struct heap const* h, FILE* f) {
+void heap_debug_info(struct heap* h, FILE* f) {
   block_foreach_printer(h, heap_blocks, block_debug_info, f);
   fprintf(f, "\n");
 }
