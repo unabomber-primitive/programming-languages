@@ -1,4 +1,3 @@
-/* heap-1.c */
 
 #include <stdbool.h>
 #include <stddef.h>
@@ -39,13 +38,14 @@ bool block_id_is_valid(struct block_id bid) {
 bool block_is_free(struct block_id bid) {
   if (!block_id_is_valid(bid))
     return false;
-  return !bid.heap->is_occupied[bid.value];
+  return bid.heap->status[bid.value] == BLK_FREE;
 }
 
 /* Allocate */
 //? ? ?
 struct block_id block_allocate(struct heap* heap, size_t size) {
   //???
+  return block_id_invalid();
 }
 /* Free */
 // ? ? ?
@@ -67,13 +67,13 @@ void block_debug_info(struct block_id b, FILE* f) {
   fprintf(f, "%s", block_repr(b));
 }
 
-void block_foreach_printer(struct heap const* h, size_t count,
+void block_foreach_printer(struct heap* h, size_t count,
                            void printer(struct block_id, FILE* f), FILE* f) {
   for (size_t c = 0; c < count; c++)
     printer(block_id_new(c, h), f);
 }
 
-void heap_debug_info(struct heap const* h, FILE* f) {
+void heap_debug_info(struct heap* h, FILE* f) {
   block_foreach_printer(h, HEAP_BLOCKS, block_debug_info, f);
   fprintf(f, "\n");
 }
