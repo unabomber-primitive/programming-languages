@@ -88,8 +88,9 @@ struct ring_token *tokenize(char *str)
       ring_token_free(&tokens);
       return NULL;
     }
-    if (token.type == TOK_MINUS && (prev.type == TOK_OPEN || is_binop(prev)))
-        token.type = TOK_NEG;
+    if (token.type == TOK_MINUS && 
+        (tokens == NULL || prev.type == TOK_OPEN || is_binop(prev)))
+      token.type = TOK_NEG;
     ring_token_push(&tokens, token);
     prev = token;
   }
