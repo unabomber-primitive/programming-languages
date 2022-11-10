@@ -56,12 +56,9 @@ static void print_unop(FILE *f, struct AST *ast) {
 static void print_lit(FILE *f, struct AST *ast) {
   fprintf(f, "%" PRId64, ast->as_literal.value);
 }
-static void print_none(FILE *f, struct AST *ast) {
-  fprintf(f, "[%" PRId64"]", ast->as_literal.value);
-}
 
 static printer *ast_printers[] = {
-    [AST_BINOP] = print_binop, [AST_UNOP] = print_unop, [AST_LIT] = print_lit, [AST_NONE] = print_none};
+    [AST_BINOP] = print_binop, [AST_UNOP] = print_unop, [AST_LIT] = print_lit };
 
 void print_ast(FILE *f, struct AST *ast) {
   if (ast)
@@ -71,5 +68,10 @@ void print_ast(FILE *f, struct AST *ast) {
 }
 
 int64_t calc_ast(struct AST *ast) {
+  /* TODO */
   return 0;
+}
+
+void p_print_ast(FILE *f, struct AST *ast) {
+  /* TODO */
 }

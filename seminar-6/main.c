@@ -1,5 +1,7 @@
 /* main.c */
 
+#include <string.h>
+
 #include "ast.h"
 #include "ring.h"
 #include "tokenizer.h"
@@ -31,7 +33,14 @@ struct AST *build_ast(char *str)
 
 int main()
 {
-  char *str = "1 + 2 * (2 - -3) + 8";
+  /* char *str = "1 + 2 * (2 - -3) + 8"; */
+  const int MAX_LEN = 1024;
+  char str[MAX_LEN];
+  if (fgets(str, MAX_LEN, stdin) == NULL)
+    RETURN_ERROR(0, "Input is empty.");
+
+  if (str[strlen(str) - 1] == '\n')
+    str[strlen(str) - 1] = '\0';
 
   struct AST *ast = build_ast(str);
 
@@ -41,6 +50,8 @@ int main()
   {
     print_ast(stdout, ast);
     printf("\n\n%s = %" PRId64 "\n", str, calc_ast(ast));
+    p_print_ast(stdout, ast);
+    printf(" = %" PRId64 "\n", calc_ast(ast));    
   }
 
   return 0;

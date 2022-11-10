@@ -8,7 +8,7 @@
 #include <stdio.h>
 
 struct AST {
-  enum AST_type { AST_BINOP, AST_UNOP, AST_LIT, AST_NONE } type;
+  enum AST_type { AST_BINOP, AST_UNOP, AST_LIT } type;
   union {
     struct binop {
       enum binop_type { BIN_PLUS, BIN_MINUS, BIN_MUL, BIN_DIV } type;
@@ -51,5 +51,6 @@ DECLARE_UNOP(neg, NEG)
 
 void print_ast(FILE *f, struct AST *ast);
 int64_t calc_ast(struct AST *ast);
+void p_print_ast(FILE *f, struct AST *ast);
 
 #endif
