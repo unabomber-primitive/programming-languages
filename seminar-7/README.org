@@ -185,7 +185,7 @@ struct list {
 };
 
 struct list *c(int64_t head, struct list *tail) {
-  struct list *h = malloc(sizeof(struct list));
+  struct list *h = (struct list *)malloc(sizeof(struct list));
   h->elem = head;
   h->next = tail;
   return h;
