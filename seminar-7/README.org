@@ -388,7 +388,7 @@ gcc -fno-stack-protector -z execstack -no-pie -g -o stack-smash stack-smash.c
 
 
 #+begin_src 
-echo -n -e '\x11\x40\x00\x99' # четыре байта с кодами 11 40 0 и 99 (16-ричными)
+echo -n -e "\x11\x40\x00\x99" # четыре байта с кодами 11 40 0 и 99 (16-ричными)
 #+end_src 
 
 
